@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;helloworld/Inc/stn32f030xx_gpio.h&apos; to &apos;stm32f030xx_gpio.h&apos;" description="Rename resource &apos;stn32f030xx_gpio.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Inc/stn32f030xx_gpio.h" name="stm32f030xx_gpio.h" stamp="1651060902749" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;helloworld/Src/stm32f030xx_RCC.h&apos; to &apos;stm32f030xx_RCC.c&apos;" description="Rename resource &apos;stm32f030xx_RCC.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/stm32f030xx_RCC.h" name="stm32f030xx_RCC.c" stamp="1651067800249" updateReferences="true"/>
-</session>
