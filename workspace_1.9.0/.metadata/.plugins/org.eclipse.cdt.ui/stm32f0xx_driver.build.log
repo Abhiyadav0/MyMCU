@@ -1,0 +1,17 @@
+13:42:58 **** Incremental Build of configuration Debug for project stm32f0xx_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/spi_slave.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DSTM32F030R8Tx -DSTM32 -DSTM32F0 -c -I../Inc -I"C:/Users/Abhi/STM32CubeIDE/workspace_1.9.0/stm32f0xx_driver/Drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/spi_slave.d" -MT"Src/spi_slave.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/spi_slave.o"
+arm-none-eabi-gcc -o "stm32f0xx_driver.elf" @"objects.list"   -mcpu=cortex-m0 -T"C:\Users\Abhi\STM32CubeIDE\workspace_1.9.0\stm32f0xx_driver\STM32F030R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f0xx_driver.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f0xx_driver.elf
+ 
+arm-none-eabi-size   stm32f0xx_driver.elf 
+arm-none-eabi-objdump -h -S  stm32f0xx_driver.elf  > "stm32f0xx_driver.list"
+   text	   data	    bss	    dec	    hex	filename
+  10144	    116	   1756	  12016	   2ef0	stm32f0xx_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f0xx_driver.list
+ 
+
+13:43:01 Build Finished. 0 errors, 0 warnings. (took 2s.373ms)
+

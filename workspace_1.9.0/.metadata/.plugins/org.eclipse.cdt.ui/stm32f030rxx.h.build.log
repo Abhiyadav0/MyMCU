@@ -1,0 +1,10 @@
+19:06:16 **** Incremental Build of configuration Debug for project stm32f030rxx.h ****
+make -j4 all 
+arm-none-eabi-size   stm32f030rxx.h.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4924	     20	   1572	   6516	   1974	stm32f030rxx.h.elf
+Finished building: default.size.stdout
+ 
+
+19:06:17 Build Finished. 0 errors, 0 warnings. (took 297ms)
+
