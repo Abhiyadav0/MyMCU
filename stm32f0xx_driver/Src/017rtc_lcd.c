@@ -35,8 +35,6 @@ void get_time(void){
 int main()
 {
 
-
-
 	        RTC_Time X;
 		X.am_pm = 1;
 		X.hour = 6;
@@ -55,10 +53,7 @@ int main()
 		RTC_Start();
 		lcd_init();
 
-
-
-
-    				 while(1)
+			 while(1)
     				    {
     					 get_time();
     					 lcd_set_cursor(1, 1);
