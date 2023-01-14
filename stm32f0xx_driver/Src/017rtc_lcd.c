@@ -9,10 +9,9 @@
 #include<string.h>
 #include "stm32f030xx.h"
 #include "Lcd.h"
+
 char time[200];
 char date[200];
-
-
 
 static void mdelay(uint32_t cnt)
 {
@@ -38,7 +37,7 @@ int main()
 
 
 
-	    RTC_Time X;
+	        RTC_Time X;
 		X.am_pm = 1;
 		X.hour = 6;
 		X.min = 53;
@@ -64,9 +63,9 @@ int main()
     					 get_time();
     					 lcd_set_cursor(1, 1);
     					 lcd_print_string(time);
-                         lcd_set_cursor(2, 1);
+                                         lcd_set_cursor(2, 1);
     					 lcd_print_string(date);
-                         mdelay(500);
+                                         mdelay(500);
 
     				    }
     }
