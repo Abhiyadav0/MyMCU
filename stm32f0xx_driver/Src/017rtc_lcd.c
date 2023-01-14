@@ -10,8 +10,8 @@
 #include "stm32f030xx.h"
 #include "Lcd.h"
 
-char time[200];
-char date[200];
+char time[20];
+char date[20];
 
 static void mdelay(uint32_t cnt)
 {
