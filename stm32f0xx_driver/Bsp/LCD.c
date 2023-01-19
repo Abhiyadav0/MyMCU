@@ -195,11 +195,18 @@ void lcd_set_cursor(uint8_t row, uint8_t column)
   {
     case 1:
       /* Set cursor to 1st row address and add index*/
-      lcd_send_command((column |= 0x80));
+        lcd_send_command((column |= 0x80));
       break;
     case 2:
       /* Set cursor to 2nd row address and add index*/
         lcd_send_command((column |= 0xC0));
+    case 3:
+      /* Set cursor to 3rd row address and add index*/
+        lcd_send_command((column |= 0x94));
+          break;
+    case 4:
+      /* Set cursor to 4rth row address and add index*/
+        lcd_send_command((column |= 0xD4));	  
       break;
     default:
       break;
