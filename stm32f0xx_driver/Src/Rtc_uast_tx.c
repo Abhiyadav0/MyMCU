@@ -1,20 +1,3 @@
-/**
- ******************************************************************************
- * @file           : main.c
- * @author         : Abhi
- * @brief          : Main program body
- ******************************************************************************
- * @attention
- *
- * Copyright (c) 2022 STMicroelectronics.
- * All rights reserved.
- *
- * This software is licensed under terms that can be found in the LICENSE file
- * in the root directory of this software component.
- * If no LICENSE file comes with this software, it is provided AS-IS.
- *
- ******************************************************************************/
-
 
 #include<stdio.h>
 #include<string.h>
@@ -63,56 +46,7 @@ void 	USART2_GPIOInit(void)
 
 }
 
-void number_to_string(uint8_t num , char* buf)
-{
 
-	if(num < 10){
-		buf[0] = '0';
-		buf[1] = num+48;
-	}else if(num >= 10 && num < 99)
-	{
-		buf[0] = (num/10) + 48;
-		buf[1]= (num % 10) + 48;
-	}
-}
-
-
-
-//hh:mm:ss
-char* time_to_string(RTC_Time *rtc_time)
-{
-	static char buf[9];
-
-	buf[2]= ':';
-	buf[5]= ':';
-
-	number_to_string(rtc_time->hour,buf);
-	number_to_string(rtc_time->min,&buf[3]);
-	number_to_string(rtc_time->seconds,&buf[6]);
-
-	buf[8] = '\0';
-
-	return buf;
-
-}
-
-//dd/mm/yy
-char* date_to_string(RTC_Date *rtc_date)
-{
-	static char buf[9];
-
-	buf[2]= '/';
-	buf[5]= '/';
-
-	number_to_string(rtc_date->day,buf);
-	number_to_string(rtc_date->month,&buf[3]);
-	number_to_string(rtc_date->year,&buf[6]);
-
-	buf[8]= '\0';
-
-	return buf;
-
-}
 
 static void mdelay(uint32_t cnt)
 {
@@ -135,8 +69,8 @@ void get_time(void){
 int main()
 {
 	USART2_GPIOInit();
-    USART2_Init();
-    USART_PeripheralControl(USART2,ENABLE);
+        USART2_Init();
+        USART_PeripheralControl(USART2,ENABLE);
 
 	RTC_Time X;
 	X.am_pm = 1;
@@ -157,12 +91,12 @@ int main()
 
 	while(1){
 
-		    get_time();
+            get_time();
             USART_SendData(&usart2_handle,(uint8_t*)time,strlen(time));
             USART_SendData(&usart2_handle,(uint8_t*)msg1,strlen(msg1));
             USART_SendData(&usart2_handle,(uint8_t*)date,strlen(date));
             USART_SendData(&usart2_handle,(uint8_t*)msg2,strlen(msg2));
-			mdelay(500);
+            mdelay(500);
 	}
 	return 0;
 }
