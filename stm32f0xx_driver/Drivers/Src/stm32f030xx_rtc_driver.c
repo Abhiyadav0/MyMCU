@@ -52,10 +52,10 @@ void RTC_Set_Date(RTC_Date *D)
 	uint32_t d;
 	D->year = D -> year - 2000;
 	yrs = binary_to_bcd(D->year);
-    wd = D->week_day;
-    mnts = binary_to_bcd(D->month);
-    dte = binary_to_bcd(D->day);
-    d =  yrs << 16 | wd << 13  | mnts << 8  | dte << 0;
+        wd = D->week_day;
+        mnts = binary_to_bcd(D->month);
+        dte = binary_to_bcd(D->day);
+        d =  yrs << 16 | wd << 13  | mnts << 8  | dte << 0;
 	RTC -> DR = d ;// time
 
 }
@@ -73,8 +73,8 @@ void RTC_Get_Time(RTC_Time *T)
 	int seconds, mins, hours;
 	t = RTC -> TR;
 	hours=bcd_to_binary(T->hour);
-    mins=bcd_to_binary(T->min);
-    seconds= bcd_to_binary(T->seconds);
+        mins=bcd_to_binary(T->min);
+        seconds= bcd_to_binary(T->seconds);
 	}
 
 
@@ -84,10 +84,10 @@ void RTC_Get_Date(RTC_Date *D)
 	uint32_t d;
 	int date, month, year;
 	int wd;
-    d = RTC -> DR;
-    year = 2000 + bcd_to_binary(D -> year);;
-    month = bcd_to_binary(D -> month);
-    date = bcd_to_binary(D -> day);
+        d = RTC -> DR;
+        year = 2000 + bcd_to_binary(D -> year);;
+        month = bcd_to_binary(D -> month);
+        date = bcd_to_binary(D -> day);
 }
 
 
