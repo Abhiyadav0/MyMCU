@@ -387,6 +387,11 @@ typedef struct
 #define SPI1_PCLK_DI() (RCC->APB2ENR &= ~(1 << 12))
 #define SPI2_PCLK_DI() (RCC->APB1ENR &= ~(1 << 14))
 /*
+ * Clock Disable Macros for I2Cx peripherals
+ */
+#define I2C1_PCLK_DI() (RCC->APB1ENR &= ~(1 << 21))
+#define I2C2_PCLK_DI() (RCC->APB1ENR &= ~(1 << 22))
+/*
  * Clock Disable Macros for USARTx peripherals
  */
 #define USART1_PCCK_DI() (RCC->APB2ENR &= ~(1 << 14))
