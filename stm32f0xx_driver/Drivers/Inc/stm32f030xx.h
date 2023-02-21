@@ -22,14 +22,10 @@
 
 #define NVIC_ISER          ( (__vo uint32_t*)0xE000E100 )
 
-
-
 /*
  * ARM Cortex Mx Processor NVIC ICERx register Addresses
  */
 #define NVIC_ICER 			((__vo uint32_t*)0xE000E180)
-
-
 
 /*
  * ARM Cortex Mx Processor Priority Register Address Calculation
@@ -126,16 +122,16 @@
 
 typedef struct
 {
-	__vo uint32_t MODER;                        /*!< GPIO port mode register,                    	                                       Address offset: 0x00      */
-	__vo uint32_t OTYPER;                       /*!< GPIO port output type register     			                                       Address offset: 0x04      */
-	__vo uint32_t OSPEEDR;                      /*!< GPIO port output speed register     			                                       Address offset: 0x08      */
-	__vo uint32_t PUPDR;                        /*!<GPIO port pull-up/pull-down register     	                                 		   Address offset: 0x0C      */
-	__vo uint32_t IDR;                          /*!< GPIO port input data register     			                                           Address offset: 0x10      */
-	__vo uint32_t ODR;                          /*!<GPIO port output data register     		                                               Address offset: 0x14      */
-	__vo uint32_t BSRR;                         /*!< GPIO port bit set/reset register     		                                           Address offset: 0x1A      */
-	__vo uint32_t LCKR;                         /*!< GPIO port configuration lock register    		                                       Address offset: 0x1C      */
-	__vo uint32_t AFR[2];					 /*!< AFR[0] : GPIO alternate function low register, AF[1] : GPIO alternate function high register    		Address offset: 0x20-0x24 */
-	__vo uint32_t BRR;                          /*!<GPIO port bit reset register     			                                             Address offset: 0x28     */
+	__vo uint32_t MODER;                      /*!< GPIO port mode register,                    	                                       Address offset: 0x00      */
+	__vo uint32_t OTYPER;                     /*!< GPIO port output type register     			                                       Address offset: 0x04      */
+	__vo uint32_t OSPEEDR;                    /*!< GPIO port output speed register     			                                       Address offset: 0x08      */
+	__vo uint32_t PUPDR;                      /*!<GPIO port pull-up/pull-down register     	                                 		   Address offset: 0x0C      */
+	__vo uint32_t IDR;                        /*!< GPIO port input data register     			                                           Address offset: 0x10      */
+	__vo uint32_t ODR;                        /*!<GPIO port output data register     		                                               Address offset: 0x14      */
+	__vo uint32_t BSRR;                       /*!< GPIO port bit set/reset register     		                                           Address offset: 0x1A      */
+	__vo uint32_t LCKR;                       /*!< GPIO port configuration lock register    		                                       Address offset: 0x1C      */
+	__vo uint32_t AFR[2];					  /*!< AFR[0] : GPIO alternate function low register, AF[1] : GPIO alternate function high register    		Address offset: 0x20-0x24 */
+	__vo uint32_t BRR;                        /*!<GPIO port bit reset register     			                                             Address offset: 0x28     */
 }GPIO_RegDef_t;
 
 
@@ -200,10 +196,10 @@ typedef struct
  */
 typedef struct
 {
-	__vo  uint32_t CFGR1;       /*!< SYSCFG configuration register 1,                           Address offset: 0x00 */
+	__vo  uint32_t CFGR1;        /*!< SYSCFG configuration register 1,                           Address offset: 0x00 */
 	__vo   uint32_t RESERVED;    /*!< Reserved,                                                                  0x04 */
-	__vo uint32_t EXTICR[4];   /*!< SYSCFG external interrupt configuration register,     Address offset: 0x14-0x08 */
-	__vo uint32_t CFGR2;       /*!< SYSCFG configuration register 2,                           Address offset: 0x18 */
+	__vo uint32_t EXTICR[4];     /*!< SYSCFG external interrupt configuration register,     Address offset: 0x14-0x08 */
+	__vo uint32_t CFGR2;         /*!< SYSCFG configuration register 2,                           Address offset: 0x18 */
 } SYSCFG_RegDef_t;
 
 
@@ -212,7 +208,7 @@ typedef struct
  */
 typedef struct
 {
-  __vo  uint32_t CR1;     /*!< I2C Control register 1,            Address offset: 0x00 */
+  __vo uint32_t CR1;      /*!< I2C Control register 1,            Address offset: 0x00 */
   __vo uint32_t CR2;      /*!< I2C Control register 2,            Address offset: 0x04 */
   __vo uint32_t OAR1;     /*!< I2C Own address 1 register,        Address offset: 0x08 */
   __vo uint32_t OAR2;     /*!< I2C Own address 2 register,        Address offset: 0x0C */
@@ -251,8 +247,8 @@ typedef struct
  */
 typedef struct
 {
-	__vo uint32_t CR;    /*!< Power control register,                         Address offset: 0x00 */
-	__vo uint32_t CSR;    /*!< Power control/status register,                 Address offset: 0x04 */
+	__vo uint32_t CR;     /*!< Power control register,                         Address offset: 0x00 */
+	__vo uint32_t CSR;    /*!< Power control/status register,                  Address offset: 0x04 */
 
 } PWR_RegDef_t;
 
@@ -386,11 +382,14 @@ typedef struct
  */
 #define SPI1_PCLK_DI() (RCC->APB2ENR &= ~(1 << 12))
 #define SPI2_PCLK_DI() (RCC->APB1ENR &= ~(1 << 14))
+
+
 /*
  * Clock Disable Macros for I2Cx peripherals
  */
 #define I2C1_PCLK_DI() (RCC->APB1ENR &= ~(1 << 21))
 #define I2C2_PCLK_DI() (RCC->APB1ENR &= ~(1 << 22))
+
 /*
  * Clock Disable Macros for USARTx peripherals
  */
@@ -495,7 +494,7 @@ typedef struct
 /*
  * macros for all the possible priority levels
  */
-#define NVIC_IRQ_PRI0    0
+#define NVIC_IRQ_PRI0      0
 #define NVIC_IRQ_PRI15    15
 
 
@@ -562,63 +561,116 @@ typedef struct
 /*
  * Bit position definitions I2C_CR1
  */
-#define I2C_CR1_PE						0
-#define I2C_CR1_NOSTRETCH  				7
-//#define I2C_CR1_START 					8
-//#define I2C_CR1_STOP  				 	9
-#define I2C_CR1_ACK 				 	10
-#define I2C_CR1_SWRST  				 	15
 
+#define I2C_CR1_PECEN					23
+#define I2C_CR1_ALERTEN					22
+#define I2C_CR1_SMBDEN					21
+#define I2C_CR1_SMBHEN					20
+#define I2C_CR1_GCEN					19
+#define I2C_CR1_NOSTRETCH				17
+#define I2C_CR1_SBC						16
+#define I2C_CR1_RXDMAEN					15
+#define I2C_CR1_TXDMAEN					14
+#define I2C_CR1_ANFOFF					12
+#define I2C_CR1_DNF				        8
+#define I2C_CR1_ERRIE					7
+#define I2C_CR1_TCIE					6
+#define I2C_CR1_STOPIE					5
+#define I2C_CR1_NACKIE					4
+#define I2C_CR1_ADDRIE					3
+#define I2C_CR1_RXIE					2
+#define I2C_CR1_TXIE					1
+#define I2C_CR1_PE          			0
 /*
  * Bit position definitions I2C_CR2
  */
-#define I2C_CR2_FREQ				 	0
-#define I2C_CR2_ITERREN				 	8
-#define I2C_CR2_ITEVTEN				 	9
-#define I2C_CR2_ITBUFEN 			    10
-#define I2C_CR2_START 					13
-#define I2C_CR2_STOP  				 	14
-#define I2C_CR2_ACK 				 	15
+#define I2C_CR2_PECBYTE					26
+#define I2C_CR2_AUTOEND					25
+#define I2C_CR2_RELOAD					24
+#define I2C_CR2_NBYTES      			16
+#define I2C_CR2_NACK					15
+#define I2C_CR2_STOP					14
+#define I2C_CR2_START					13
+#define I2C_CR2_HEAD10R					12
+#define I2C_CR2_ADD10 					11
+#define I2C_CR2_RD_WRN					10
+#define I2C_CR2_SADD	                0
 /*
  * Bit position definitions I2C_OAR1
  */
-#define I2C_OAR1_ADD0    				 0
-#define I2C_OAR1_ADD71 				 	 1
-#define I2C_OAR1_ADD98  			 	 8
-#define I2C_OAR1_ADDMODE   			 	15
-
+#define I2C_OAR1_OA1EN					15
+#define I2C_OAR1_OA1MODE				10
+#define I2C_OAR1_OA1	         		0
 /*
- * Bit position definitions I2C_SR1
+ * Bit position definitions I2C_OAR2
+ */
+#define I2C_OAR2_OA2EN 					15
+#define I2C_OAR2_OA2MSK 	 			8
+#define I2C_OAR2_OA2					1
+/*
+ * Bit position definitions I2C_TIMINGR
+ */
+#define I2C_TIMINGR_PRESC		          28
+#define I2C_TIMINGR_SCLDEL		          20
+#define I2C_TIMINGR_SDADEL		          16
+#define I2C_TIMINGR_SCLH		           8
+#define I2C_TIMINGR_SCLL	               0
+/*
+ * Bit position definitions I2C_TIMINGR
+ */
+#define I2C_TIMEOUTR_TEXTEN				    31
+#define I2C_TIMEOUTR_TIMEOUTB				16
+#define I2C_TIMEOUTR_TIMOUTEN			    15
+#define I2C_TIMEOUTR_TIDLE				    12
+#define I2C_TIMEOUTR_TIMEOUTA 		        0
+/*
+ * Bit position definitions I2C_ISR
  */
 
-#define I2C_SR1_SB 					 	0
-#define I2C_SR1_ADDR 				 	1
-#define I2C_SR1_BTF 					2
-#define I2C_SR1_ADD10 					3
-#define I2C_SR1_STOPF 					4
-#define I2C_SR1_RXNE 					6
-#define I2C_SR1_TXE 					7
-#define I2C_SR1_BERR 					8
-#define I2C_SR1_ARLO 					9
-#define I2C_SR1_AF 					 	10
-#define I2C_SR1_OVR 					11
-#define I2C_SR1_TIMEOUT 				14
+
+#define I2C_ISR_ADDCODE 					17
+#define I2C_ISR_DIR						    16
+#define I2C_ISR_BUSY						15
+#define I2C_ISR_ALERT					    13
+#define I2C_ISR_TIMEOUT					    12
+#define I2C_ISR_PECERR					    11
+#define I2C_ISR_OVR						    10
+#define I2C_ISR_ARLO						9
+#define I2C_ISR_BERR						8
+#define I2C_ISR_TCR						    7
+#define I2C_ISR_TC						    6
+#define I2C_ISR_STOPF					    5
+#define I2C_ISR_NACKF					    4
+#define I2C_ISR_ADDR						3
+#define I2C_ISR_RXNE						2
+#define I2C_ISR_TXIS						1
+#define I2C_ISR_TXE						    0
 
 /*
- * Bit position definitions I2C_SR2
+ * Bit position definitions I2C_ICR
  */
-#define I2C_SR2_MSL						0
-#define I2C_SR2_BUSY 					1
-#define I2C_SR2_TRA 					2
-#define I2C_SR2_GENCALL 				4
-#define I2C_SR2_DUALF 					7
-
+#define I2C_ICR_ALERTCF					13
+#define I2C_ICR_TIMOUTCF				12
+#define I2C_ICR_PECCF					11
+#define I2C_ICR_OVRCF					10
+#define I2C_ICR_ARLOCF					9
+#define I2C_ICR_BERRCF					8
+#define I2C_ICR_STOPCF					5
+#define I2C_ICR_NACKCF					4
+#define I2C_ICR_ADDRCF					3
 /*
- * Bit position definitions I2C_CCR
+ * Bit position definitions I2C_PECR
  */
-#define I2C_CCR_CCR 					 0
-#define I2C_CCR_DUTY 					14
-#define I2C_CCR_FS  				 	15
+#define I2C_PECR_PEC                     0
+/*
+ * Bit position definitions I2C_RXDR
+ */
+#define I2C_RXDR_RXDATA                  0
+/*
+ * Bit position definitions I2C_TXDR
+ */
+#define I2C_TXDR_TXDATA                  0
+
 
 /******************************************************************************************
  *Bit position definitions of USART peripheral
@@ -627,8 +679,6 @@ typedef struct
 /*
  * Bit position definitions USART_CR1
  */
-
-
 #define USART_CR1_UE					0
 #define USART_CR1_RE 					2
 #define USART_CR1_TE 					3
@@ -659,8 +709,6 @@ typedef struct
 #define USART_CR2_TXINV					17
 #define USART_CR2_DATAINV				18
 #define USART_CR2_MSBFIRST				19
-
-
 
 /*
  * Bit position definitions USART_CR3
@@ -750,9 +798,6 @@ typedef struct
 /*                           Real-Time Clock (RTC)                           */
 /*                                                                           */
 /*****************************************************************************/
-
-
-
 
 /********************  Bits definition for RTC_CR register  ******************/
 #define RTC_CR_COE_Pos               (23U)
@@ -1123,6 +1168,12 @@ typedef struct
 #include "stm32f030xx_usart_driver.h"
 #include "stm32f030xx_rcc_driver.h"
 #include "stm32f030xx_rtc_driver.h"
+#include "stm32f030xx_rtc1_driver.h"
+#include "stm32f030xx_cc1101_driver.h"
+#include "stm32f030xx_esp8266_driver.h"
+#include "LCD1.h"
+
+
 
 
 #endif /* INC_STM32F030XX_H_ */
