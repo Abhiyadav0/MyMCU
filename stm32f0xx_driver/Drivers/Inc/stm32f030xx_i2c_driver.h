@@ -72,18 +72,22 @@ typedef struct
 /*
  * I2C related status flags definitions
  */
-#define I2C_FLAG_TXE   		( 1 << I2C_SR1_TXE)
-#define I2C_FLAG_RXNE   	( 1 << I2C_SR1_RXNE)
-#define I2C_FLAG_SB			( 1 << I2C_SR1_SB)
-#define I2C_FLAG_OVR  		( 1 << I2C_SR1_OVR)
-#define I2C_FLAG_AF   		( 1 << I2C_SR1_AF)
-#define I2C_FLAG_ARLO 		( 1 << I2C_SR1_ARLO)
-#define I2C_FLAG_BERR 		( 1 << I2C_SR1_BERR)
-#define I2C_FLAG_STOPF 		( 1 << I2C_SR1_STOPF)
-#define I2C_FLAG_ADD10 		( 1 << I2C_SR1_ADD10)
-#define I2C_FLAG_BTF  		( 1 << I2C_SR1_BTF)
-#define I2C_FLAG_ADDR 		( 1 << I2C_SR1_ADDR)
-#define I2C_FLAG_TIMEOUT 	( 1 << I2C_SR1_TIMEOUT)
+#define I2C_FLAG_TXE                    ( 1 << I2C_ISR_TXE)
+#define I2C_FLAG_TXIS                   ( 1 << I2C_ISR_TXIS)
+#define I2C_FLAG_RXNE                   ( 1 << I2C_ISR_RXNE)
+#define I2C_FLAG_ADDR                   ( 1 << I2C_ISR_ADDR)
+#define I2C_FLAG_AF                     ( 1 << I2C_ISR_NACKF)
+#define I2C_FLAG_STOPF                  ( 1 << I2C_ISR_STOPF)
+#define I2C_FLAG_TC                     ( 1 << I2C_ISR_TC)
+#define I2C_FLAG_TCR                    ( 1 << I2C_ISR_TCR)
+#define I2C_FLAG_BERR                   ( 1 << I2C_ISR_BERR)
+#define I2C_FLAG_ARLO                   ( 1 << I2C_ISR_ARLO)
+#define I2C_FLAG_OVR                    ( 1 << I2C_ISR_OVR)
+#define I2C_FLAG_PECERR                 ( 1 << I2C_ISR_PECERR)
+#define I2C_FLAG_TIMEOUT                ( 1 << I2C_ISR_TIMEOUT)
+#define I2C_FLAG_ALERT                  ( 1 << I2C_ISR_ALERT)
+#define I2C_FLAG_BUSY                   ( 1 << I2C_ISR_BUSY)
+#define I2C_FLAG_DIR                    ( 1 << I2C_ISR_DIR)
 
 #define I2C_DISABLE_SR  	RESET
 #define I2C_ENABLE_SR   	SET
@@ -160,3 +164,4 @@ void I2C_ApplicationEventCallback(I2C_Handle_t *pI2CHandle,uint8_t AppEv);
 
 
 #endif /* INC_STM32F030XX_I2C_DRIVER_H_ */
+
